@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ListContacts = ({ contacts, onDelete }) => {
     const [query, setQuery] = useState("");
@@ -17,7 +18,8 @@ const ListContacts = ({ contacts, onDelete }) => {
                     type="text"
                     placeholder="Search Contacts"
                     value={query}
-                    onChange={ (e) => updateQuery(e.target.value) } />
+                    onChange={(e) => updateQuery(e.target.value)} />
+                <Link to="/create" className="add-contact">Add Contact</Link>
             </div>
             {
                 results.length !== contacts.length && (
